@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_chat_app/components/mybutton.dart';
 
 void main() {
   runApp(ChatApp());
@@ -14,13 +15,17 @@ class ChatApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text('Logo goes here'),
-              TextButton(
+              MyButton(
+                text: 'Sign In',
+                onPressed: (){},
+              ),
+              MyButton(
+                text: 'Register',
                 onPressed: () {},
-                style: TextButton.styleFrom(backgroundColor: Colors.blue),
-                child: const Text('Sign In'),
-
               ),
             ],
           ),
