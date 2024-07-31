@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
 
 class MyButton extends StatelessWidget {
-  String text;
-  Color? color;
-  Function? onPressed;
-  MyButton({required this.text, this.color, this.onPressed});
+  final String text;
+  final Color? color;
+  final void Function() onPressed;
+  MyButton({required this.text, this.color, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(40.0),
+      margin: const EdgeInsets.only(left: 10.0, right: 10.0, ),
       child: TextButton(
-        onPressed: () => onPressed,
+        onPressed:  onPressed,
         style: TextButton.styleFrom(backgroundColor: color ?? kBlueButtonColor),
         child: Text(
           text,
-          style: const TextStyle(fontFamily: 'Roboto', fontSize: 18.0),
+          style: kButtonTextStyle,
         ),
       ),
     );
