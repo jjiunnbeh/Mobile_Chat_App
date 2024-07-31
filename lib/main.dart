@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_chat_app/pages/loginPage.dart';
+import 'package:mobile_chat_app/pages/registerPage.dart';
 import 'package:mobile_chat_app/pages/welcomePage.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class ChatApp extends StatelessWidget {
       routes: {
         WelcomePage.id: (context) => const WelcomePage(),
         LoginPage.id: (context) => const LoginPage(),
+        RegisterPage.id :(context) => const RegisterPage(),
       },
     );
   }

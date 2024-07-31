@@ -5,13 +5,15 @@ class MyButton extends StatelessWidget {
   final String text;
   final Color? color;
   final void Function() onPressed;
-  MyButton({required this.text, this.color, required this.onPressed});
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  MyButton({required this.text, this.color, required this.onPressed, this.margin, this.padding});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(40.0),
-      margin: const EdgeInsets.only(left: 10.0, right: 10.0, ),
+      padding: padding,
+      margin: margin,
       child: TextButton(
         onPressed:  onPressed,
         style: TextButton.styleFrom(backgroundColor: color ?? kBlueButtonColor),

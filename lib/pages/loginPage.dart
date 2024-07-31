@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
-import 'welcomePage.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
+import 'package:mobile_chat_app/components/mybutton.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -17,22 +17,37 @@ class LoginPage extends StatelessWidget {
       ),
       body: SafeArea(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 3,
-            child: HeroLogo(
-              margin: EdgeInsets.all(100),
-              padding: EdgeInsets.only(left: 10, right: 10),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: HeroLogo(
+                      padding: EdgeInsets.symmetric(vertical: 100),
+                      margin: EdgeInsets.only(left: 100, right: 100)
+                  ),
+                ),
+              ),
             ),
           ),
           Expanded(
-            child: Input(hint: 'Enter your email.',),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Input(hint: 'Enter your email.',),
+                SizedBox(height: 5,),
+                Input(hint: 'Enter your password.',),
+                MyButton(
+                  margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+                  text: 'Sign In',
+                  onPressed: (){},
+                )
+              ],
+            ),
           ),
-          Expanded(
-            child: Input(hint: 'Enter your password.',),
-          ),
+
         ],
       )),
     );
