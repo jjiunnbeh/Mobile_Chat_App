@@ -88,7 +88,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                     alert != null
                         ? Container(
-                      margin: const EdgeInsets.only(top: 15.0,),
+                      margin: kListViewPadding,
                           child: Text(
                               alert.toString(),
                               style: kAlertTextStyle,
