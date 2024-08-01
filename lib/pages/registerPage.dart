@@ -4,7 +4,10 @@ import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
 import 'package:mobile_chat_app/components/mybutton.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -17,8 +20,15 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   String? email;
   String? password;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Register for an account', style: kAppBarTextStyle),
@@ -69,13 +79,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     text: 'Register',
                     onPressed: () async {
                       try {
-                        if (email != null && password != null) {
-                          final newUser = await FirebaseAuth.instance
+                          await Firebase.initializeApp(
+                          );
+                          await FirebaseAuth.instance
                               .createUserWithEmailAndPassword(
                                   email: email.toString(),
                                   password: password.toString());
                           Navigator.pushNamed(context, LoginPage.id);
-                        }
                       } catch (error) {
                         print(error);
                       }
