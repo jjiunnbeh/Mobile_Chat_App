@@ -30,6 +30,11 @@ const kChatSendButtonTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 18.0,
 );
+const kCircleSpinner = Center(child: CircularProgressIndicator(backgroundColor: Colors.lightBlue,),);
+const kListViewPadding = EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0,);
+//Message bubble
+const kSenderTextStyle = TextStyle(fontSize: 12.0,);
+const kMessageTextStyle = TextStyle(fontSize: 15.0, color: Colors.white);
 
 //==========================Forget Password ===============================
 const kAlertTextStyle = TextStyle(color: Colors.red, fontSize: 15, fontFamily: 'Roboto',);
