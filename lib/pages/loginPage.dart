@@ -88,7 +88,9 @@ class _LoginPageState extends State<LoginPage> {
                           await FirebaseAuth.instance.signInWithEmailAndPassword(
                               email: email.toString(),
                               password: password.toString());
-                          showLoading = false;
+                          setState(() {
+                            showLoading = false;
+                          });
                           Navigator.pushNamed(context, Chat.id);
                         } catch (error) {
                           print('Error starts here:');
