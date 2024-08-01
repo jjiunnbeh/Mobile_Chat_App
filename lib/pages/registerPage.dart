@@ -92,7 +92,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                 .createUserWithEmailAndPassword(
                                     email: email.toString(),
                                     password: password.toString());
-                            showLoading = false;
+                            setState(() {
+                              showLoading = false;
+                            });
                             Navigator.pushNamed(context, LoginPage.id);
                         } catch (error) {
                           print('Error starts here');
