@@ -100,6 +100,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           print('Error starts here');
                           print(error);
                           print('Error ends here');
+                          setState(() {
+                            showLoading = false;
+                          });
                         }
                       },
                     )

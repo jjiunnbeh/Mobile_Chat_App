@@ -96,6 +96,9 @@ class _LoginPageState extends State<LoginPage> {
                           print('Error starts here:');
                           print(error);
                           print("Error ends here.");
+                          setState(() {
+                            showLoading = false;
+                          });
                         }
                       },
                     ),
