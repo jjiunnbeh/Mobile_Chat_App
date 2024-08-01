@@ -13,3 +13,20 @@ const kInputBorderRadius = BorderRadius.all(Radius.circular(32.0));
 const kInputContentPadding = EdgeInsets.symmetric(horizontal: 20.0);
 const kEmailKeyboard = TextInputType.emailAddress;
 const kViewIcon = Icon(Icons.remove_red_eye);
+
+//=========================Chat Page====================================
+const kChatContainerDeco = BoxDecoration(
+  border: Border(
+    top: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
+  ),
+);
+const kChatTextFieldDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  hintText: 'Type your message here...',
+  border: InputBorder.none,
+);
+const kChatSendButtonTextStyle = TextStyle(
+  color: Colors.lightBlueAccent,
+  fontWeight: FontWeight.bold,
+  fontSize: 18.0,
+);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_chat_app/pages/loginPage.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
@@ -11,7 +12,6 @@ class RegisterPage extends StatefulWidget {
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
-
 }
 
 class _RegisterPageState extends State<RegisterPage> {
@@ -68,15 +68,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         top: 10.0, left: 20.0, right: 20.0),
                     text: 'Register',
                     onPressed: () async {
-                      try
-                      {
-                        if(email != null  && password != null)
-                        {
-                          final newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.toString(), password: password.toString());
-                        }
-                      }
-                      catch(error)
-                      {
+                      try {
+                        // if (email != null && password != null) {
+                        //   final newUser = await FirebaseAuth.instance
+                        //       .createUserWithEmailAndPassword(
+                        //           email: email.toString(),
+                        //           password: password.toString());
+                        //   Navigator.pushNamed(context, LoginPage.id);
+                        // }
+                      } catch (error) {
                         print(error);
                       }
                     },
