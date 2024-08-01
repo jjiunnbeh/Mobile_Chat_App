@@ -23,6 +23,7 @@ class _ChatState extends State<Chat> {
       if (user != null)
       {
         loggedInUser = user;
+        print(loggedInUser?.email);
       }
     }
     catch(error)

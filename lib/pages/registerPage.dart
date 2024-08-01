@@ -69,13 +69,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     text: 'Register',
                     onPressed: () async {
                       try {
-                        // if (email != null && password != null) {
-                        //   final newUser = await FirebaseAuth.instance
-                        //       .createUserWithEmailAndPassword(
-                        //           email: email.toString(),
-                        //           password: password.toString());
-                        //   Navigator.pushNamed(context, LoginPage.id);
-                        // }
+                        if (email != null && password != null) {
+                          final newUser = await FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: email.toString(),
+                                  password: password.toString());
+                          Navigator.pushNamed(context, LoginPage.id);
+                        }
                       } catch (error) {
                         print(error);
                       }
