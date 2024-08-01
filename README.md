@@ -9,7 +9,7 @@ User can choose to sign in or register for an account here.
 
 ## Register Page
 User can register an account using E-mail and Password.
-<p><img src="./images/registerPageScreenshot.png" alt="Register Page Screenshot" height="300"/></p>
+<p><img src="./images/registerPageScreenShot.png" alt="Register Page Screenshot" height="300"/></p>
 
 ## Forget Password
 If a user forgets his/her password, they can request for a link to reset their password. The reset link will be sent to their registered email.
