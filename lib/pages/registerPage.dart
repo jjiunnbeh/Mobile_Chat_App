@@ -87,7 +87,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                   password: password.toString());
                           Navigator.pushNamed(context, LoginPage.id);
                       } catch (error) {
+                        print('Error starts here');
                         print(error);
+                        print('Error ends here');
                       }
                     },
                   )
