@@ -4,10 +4,18 @@ import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
 import 'package:mobile_chat_app/components/mybutton.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
   static const String id = '/register';
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  String? email;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,19 +45,28 @@ class RegisterPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Input(
-                    hint: 'Enter your email.',
+                    hint: 'Email',
+                    onChanged: (value) {
+                      email = value;
+                    },
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Input(
-                    hint: 'Enter your password.',
+                    hint: 'Password',
+                    onChanged: (value) {
+                      password = value;
+                    },
                   ),
                   MyButton(
                     margin: const EdgeInsets.only(
                         top: 10.0, left: 20.0, right: 20.0),
                     text: 'Register',
-                    onPressed: () {},
+                    onPressed: () {
+                      print(email);
+                      print(password);
+                    },
                   )
                 ],
               ),

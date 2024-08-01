@@ -7,3 +7,7 @@ const kWelcomeButtonMargin = EdgeInsets.only(left: 10.0, right: 10.0,);
 
 //====================Login Page=============================
 const kAppBarTextStyle = TextStyle(fontFamily: 'Roboto', fontSize: 25.0);
+
+//======================Input Field==============================
+const kInputBorderRadius = BorderRadius.all(Radius.circular(32.0));
+const kInputContentPadding = EdgeInsets.symmetric(horizontal: 20.0);
