@@ -11,3 +11,5 @@ const kAppBarTextStyle = TextStyle(fontFamily: 'Roboto', fontSize: 25.0);
 //======================Input Field==============================
 const kInputBorderRadius = BorderRadius.all(Radius.circular(32.0));
 const kInputContentPadding = EdgeInsets.symmetric(horizontal: 20.0);
+const kEmailKeyboard = TextInputType.emailAddress;
+const kViewIcon = Icon(Icons.remove_red_eye);
