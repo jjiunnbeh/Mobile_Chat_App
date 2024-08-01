@@ -3,7 +3,7 @@ import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
 import 'package:mobile_chat_app/components/mybutton.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -67,9 +67,18 @@ class _RegisterPageState extends State<RegisterPage> {
                     margin: const EdgeInsets.only(
                         top: 10.0, left: 20.0, right: 20.0),
                     text: 'Register',
-                    onPressed: () {
-                      print(email);
-                      print(password);
+                    onPressed: () async {
+                      try
+                      {
+                        if(email != null  && password != null)
+                        {
+                          final newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.toString(), password: password.toString());
+                        }
+                      }
+                      catch(error)
+                      {
+                        print(error);
+                      }
                     },
                   )
                 ],
