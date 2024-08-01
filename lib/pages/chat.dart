@@ -14,6 +14,23 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
+  User? loggedInUser;
+  void getCurrentUser()
+  {
+    try
+    {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null)
+      {
+        loggedInUser = user;
+      }
+    }
+    catch(error)
+    {
+      print(error);
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
