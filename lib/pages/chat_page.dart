@@ -3,8 +3,7 @@ import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mobile_chat_app/components/message.dart';
-import 'package:mobile_chat_app/components/messageStream.dart';
+import 'package:mobile_chat_app/components/message_stream.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});

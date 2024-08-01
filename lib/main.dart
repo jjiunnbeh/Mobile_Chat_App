@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_chat_app/pages/chat.dart';
-import 'package:mobile_chat_app/pages/forgetPassword.dart';
-import 'package:mobile_chat_app/pages/loginPage.dart';
-import 'package:mobile_chat_app/pages/registerPage.dart';
-import 'package:mobile_chat_app/pages/welcomePage.dart';
+import 'package:mobile_chat_app/pages/chat_page.dart';
+import 'package:mobile_chat_app/pages/forget_password_page.dart';
+import 'package:mobile_chat_app/pages/login_page.dart';
+import 'package:mobile_chat_app/pages/register_page.dart';
+import 'package:mobile_chat_app/pages/welcome_page.dart';
 
 void main() {
-  runApp(ChatApp());
+  runApp(const ChatApp());
 }
 
 class ChatApp extends StatelessWidget {
@@ -21,8 +21,8 @@ class ChatApp extends StatelessWidget {
         WelcomePage.id: (context) => const WelcomePage(),
         LoginPage.id: (context) => const LoginPage(),
         RegisterPage.id :(context) => const RegisterPage(),
-        Chat.id:(context) => const Chat(),
-        ForgetPassword.id:(context) => const ForgetPassword(),
+        ChatPage.id:(context) => const ChatPage(),
+        ForgetPasswordPage.id:(context) => const ForgetPasswordPage(),
       },
     );
   }

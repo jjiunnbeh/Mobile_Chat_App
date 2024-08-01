@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_chat_app/pages/loginPage.dart';
+import 'package:mobile_chat_app/pages/login_page.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_chat_app/components/mybutton.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
-import 'loginPage.dart';
+import 'login_page.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
-import 'registerPage.dart';
+import 'register_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -19,8 +19,8 @@ class WelcomePage extends StatelessWidget {
           children: [
             Flexible(
               child: HeroLogo(
-                padding: EdgeInsets.symmetric(vertical: 100),
-                margin: EdgeInsets.only(left: 100, right: 100),
+                padding: const EdgeInsets.symmetric(vertical: 100),
+                margin: const EdgeInsets.only(left: 100, right: 100),
               ),
             ),
             MyButton(

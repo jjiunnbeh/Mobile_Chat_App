@@ -7,12 +7,13 @@ class Input extends StatefulWidget {
       this.onChanged,
       this.obscureText,
       this.keyboard,
-      this.toggleViewIcon});
+      this.toggleViewIcon,
+      super.key});
   final String hint;
   void Function(String)? onChanged;
   bool? obscureText;
-  TextInputType? keyboard;
-  bool? toggleViewIcon;
+  final TextInputType? keyboard;
+  final bool? toggleViewIcon;
 
   @override
   State<Input> createState() => _InputState();

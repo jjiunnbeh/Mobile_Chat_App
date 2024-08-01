@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_chat_app/pages/chatPage.dart';
-import 'package:mobile_chat_app/pages/forgetPasswordPage.dart';
+import 'package:mobile_chat_app/pages/chat_page.dart';
+import 'package:mobile_chat_app/pages/forget_password_page.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';

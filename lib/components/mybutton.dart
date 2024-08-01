@@ -7,7 +7,7 @@ class MyButton extends StatelessWidget {
   final void Function() onPressed;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
-  MyButton({required this.text, this.color, required this.onPressed, this.margin, this.padding});
+  const MyButton({required this.text, this.color, required this.onPressed, this.margin, this.padding, super.key});
 
   @override
   Widget build(BuildContext context) {

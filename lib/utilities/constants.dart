@@ -22,7 +22,7 @@ const kChatContainerDeco = BoxDecoration(
 );
 const kChatTextFieldDecoration = InputDecoration(
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-  hintText: 'Type your message here...',
+  hintText: 'Type your message here',
   border: InputBorder.none,
 );
 const kChatSendButtonTextStyle = TextStyle(
@@ -35,6 +35,8 @@ const kListViewPadding = EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0,)
 //Message bubble
 const kSenderTextStyle = TextStyle(fontSize: 12.0,);
 const kMessageTextStyle = TextStyle(fontSize: 15.0, color: Colors.white);
+const kLeftMessageBubbleBorder = BorderRadius.only(topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0));
+const kRightMessageBubbleBorder = BorderRadius.only(topLeft: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0));
 
 //==========================Forget Password ===============================
 const kAlertTextStyle = TextStyle(color: Colors.red, fontSize: 15, fontFamily: 'Roboto',);

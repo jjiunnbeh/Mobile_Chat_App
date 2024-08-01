@@ -4,7 +4,7 @@ class HeroLogo extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
 
-  HeroLogo({this.margin, this.padding});
+  const HeroLogo({this.margin, this.padding, super.key});
 
   @override
   Widget build(BuildContext context) {
