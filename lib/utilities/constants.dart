@@ -32,4 +32,4 @@ const kChatSendButtonTextStyle = TextStyle(
 );
 
 //==========================Forget Password ===============================
-const kAlertTextStyle = TextStyle(color: Colors.red, fontSize: 12, fontFamily: 'Roboto',);
+const kAlertTextStyle = TextStyle(color: Colors.red, fontSize: 15, fontFamily: 'Roboto',);

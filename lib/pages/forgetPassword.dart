@@ -87,11 +87,14 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       },
                     ),
                     alert != null
-                        ? Text(
-                            alert.toString(),
-                            style: kAlertTextStyle,
-                            textAlign: TextAlign.center,
-                          )
+                        ? Container(
+                      margin: const EdgeInsets.only(top: 15.0,),
+                          child: Text(
+                              alert.toString(),
+                              style: kAlertTextStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                        )
                         : const SizedBox(width: 0, height: 0,),
                   ],
                 ),
