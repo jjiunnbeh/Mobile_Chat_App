@@ -3,6 +3,8 @@ import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mobile_chat_app/components/message.dart';
+import 'package:mobile_chat_app/components/messageStream.dart';
 
 class Chat extends StatefulWidget {
   const Chat({super.key});
@@ -15,6 +17,7 @@ class Chat extends StatefulWidget {
 class _ChatState extends State<Chat> {
   User? loggedInUser;
   String? chatText;
+  final textFieldController = TextEditingController();
 
   void getCurrentUser() {
     try {
@@ -28,17 +31,6 @@ class _ChatState extends State<Chat> {
     }
   }
 
-  // Stream<dynamic>? stream0()
-  // {
-  //
-  //   // await for ( var snapshot in FirebaseFirestore.instance.collection('chat').snapshots())
-  //   //   {
-  //   //     for(var message in snapshot.docs)
-  //   //       {
-  //   //         print(message.data()['sender']);
-  //   //       }
-  //   //   }
-  // }
 
   @override
   void initState() {
@@ -69,22 +61,7 @@ class _ChatState extends State<Chat> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            StreamBuilder(
-              stream: FirebaseFirestore.instance.collection('chat').snapshots(),
-              builder: (context, snapshot) {
-                List<Widget> messageWidgets = [];
-                if (snapshot.hasData) {
-                  final messages = snapshot.data!.docs;
-                  for (var message in messages) {
-                    final messageText = message.data()['text'];
-                    final messageSender = message.data()['sender'];
-                    final messageWidget = Text(messageText);
-                    messageWidgets.add(messageWidget);
-                  }
-                }
-                return Column(children: messageWidgets);
-              },
-            ),
+            const MessagesStream(),
             Container(
               decoration: kChatContainerDeco,
               child: Row(
@@ -92,6 +69,7 @@ class _ChatState extends State<Chat> {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: textFieldController,
                       onChanged: (value) {
                         chatText = value;
                       },
@@ -100,11 +78,11 @@ class _ChatState extends State<Chat> {
                   ),
                   TextButton(
                     onPressed: () async {
+                      textFieldController.clear();
                       try {
                         await Firebase.initializeApp();
                         await FirebaseFirestore.instance.collection('chat').add(
                             {'sender': loggedInUser?.email, 'text': chatText});
-                        print('sucsess');
                       } catch (error) {
                         print(error);
                       }
@@ -123,3 +101,4 @@ class _ChatState extends State<Chat> {
     );
   }
 }
+
