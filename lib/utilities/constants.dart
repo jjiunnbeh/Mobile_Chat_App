@@ -30,3 +30,6 @@ const kChatSendButtonTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 18.0,
 );
+
+//==========================Forget Password ===============================
+const kAlertTextStyle = TextStyle(color: Colors.red, fontSize: 12, fontFamily: 'Roboto',);
