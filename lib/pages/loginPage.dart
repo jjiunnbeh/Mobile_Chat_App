@@ -39,14 +39,18 @@ class LoginPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Input(
+                    keyboard: kEmailKeyboard,
                     hint: 'Enter your email.',
                   ),
                   const SizedBox(
                     height: 10.0,
                   ),
                   Input(
+                    obscureText: true,
+                    toggleViewIcon: true,
                     hint: 'Enter your password.',
                   ),
+
                   MyButton(
                     margin: const EdgeInsets.only(
                         top: 10.0, left: 20.0, right: 20.0),

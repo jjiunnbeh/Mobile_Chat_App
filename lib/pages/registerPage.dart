@@ -4,6 +4,7 @@ import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
 import 'package:mobile_chat_app/components/mybutton.dart';
 
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
   static const String id = '/register';
@@ -46,6 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Input(
                     hint: 'Email',
+                    keyboard: kEmailKeyboard,
                     onChanged: (value) {
                       email = value;
                     },
@@ -55,6 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   Input(
                     hint: 'Password',
+                    obscureText: true,
+                    toggleViewIcon: true,
                     onChanged: (value) {
                       password = value;
                     },
