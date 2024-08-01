@@ -28,21 +28,17 @@ class _ChatState extends State<Chat> {
     }
   }
 
-  void messageStream() async
-  {
-    await Firebase.initializeApp();
-    await for ( var snapshot in FirebaseFirestore.instance.collection('chat').snapshots())
-      {
-        for(var message in snapshot.docs)
-          {
-            print(message.data()['sender']);
-          }
-      }
-  }
-
-
-
-
+  // Stream<dynamic>? stream0()
+  // {
+  //
+  //   // await for ( var snapshot in FirebaseFirestore.instance.collection('chat').snapshots())
+  //   //   {
+  //   //     for(var message in snapshot.docs)
+  //   //       {
+  //   //         print(message.data()['sender']);
+  //   //       }
+  //   //   }
+  // }
 
   @override
   void initState() {
@@ -62,7 +58,6 @@ class _ChatState extends State<Chat> {
             icon: const Icon(Icons.close),
             onPressed: () {
               //Logout
-              messageStream();
             },
           ),
         ],
@@ -74,6 +69,22 @@ class _ChatState extends State<Chat> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            StreamBuilder(
+              stream: FirebaseFirestore.instance.collection('chat').snapshots(),
+              builder: (context, snapshot) {
+                List<Widget> messageWidgets = [];
+                if (snapshot.hasData) {
+                  final messages = snapshot.data!.docs;
+                  for (var message in messages) {
+                    final messageText = message.data()['text'];
+                    final messageSender = message.data()['sender'];
+                    final messageWidget = Text(messageText);
+                    messageWidgets.add(messageWidget);
+                  }
+                }
+                return Column(children: messageWidgets);
+              },
+            ),
             Container(
               decoration: kChatContainerDeco,
               child: Row(
@@ -91,18 +102,13 @@ class _ChatState extends State<Chat> {
                     onPressed: () async {
                       try {
                         await Firebase.initializeApp();
-                        await FirebaseFirestore.instance
-                            .collection('chat')
-                            .add({'sender': loggedInUser?.email, 'text': chatText});
+                        await FirebaseFirestore.instance.collection('chat').add(
+                            {'sender': loggedInUser?.email, 'text': chatText});
                         print('sucsess');
-
-                      }catch(error)
-                      {
+                      } catch (error) {
                         print(error);
                       }
-
                     },
-
                     child: const Text(
                       'Send',
                       style: kChatSendButtonTextStyle,
