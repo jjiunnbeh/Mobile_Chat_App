@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_chat_app/pages/chat.dart';
-import 'package:mobile_chat_app/pages/forgetPassword.dart';
+import 'package:mobile_chat_app/pages/chatPage.dart';
+import 'package:mobile_chat_app/pages/forgetPasswordPage.dart';
 import 'package:mobile_chat_app/utilities/constants.dart';
 import 'package:mobile_chat_app/components/herologo.dart';
 import 'package:mobile_chat_app/components/input.dart';
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                           setState(() {
                             showLoading = false;
                           });
-                          Navigator.pushNamed(context, Chat.id);
+                          Navigator.pushNamed(context, ChatPage.id);
                         } catch (error) {
                           print('Error starts here:');
                           print(error);
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, ForgetPassword.id);
+                        Navigator.pushNamed(context, ForgetPasswordPage.id);
                       },
                       child: const Text('Forget Password'),
                     )

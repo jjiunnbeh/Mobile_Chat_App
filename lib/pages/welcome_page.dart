@@ -17,9 +17,11 @@ class WelcomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            HeroLogo(
-              padding: EdgeInsets.symmetric(vertical: 100),
-              margin: EdgeInsets.only(left: 100, right: 100),
+            Flexible(
+              child: HeroLogo(
+                padding: EdgeInsets.symmetric(vertical: 100),
+                margin: EdgeInsets.only(left: 100, right: 100),
+              ),
             ),
             MyButton(
               padding: kWelcomeButtonPadding,

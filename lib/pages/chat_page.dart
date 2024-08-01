@@ -6,15 +6,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mobile_chat_app/components/message.dart';
 import 'package:mobile_chat_app/components/messageStream.dart';
 
-class Chat extends StatefulWidget {
-  const Chat({super.key});
+class ChatPage extends StatefulWidget {
+  const ChatPage({super.key});
   static const String id = '/chat';
 
   @override
-  State<Chat> createState() => _ChatState();
+  State<ChatPage> createState() => _ChatPageState();
 }
 
-class _ChatState extends State<Chat> {
+class _ChatPageState extends State<ChatPage> {
   User? loggedInUser;
   String? chatText;
   final textFieldController = TextEditingController();
@@ -24,13 +24,11 @@ class _ChatState extends State<Chat> {
       final user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         loggedInUser = user;
-        print(loggedInUser?.email);
       }
     } catch (error) {
       print(error);
     }
   }
-
 
   @override
   void initState() {
@@ -45,14 +43,6 @@ class _ChatState extends State<Chat> {
     return Scaffold(
       appBar: AppBar(
         leading: null,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              //Logout
-            },
-          ),
-        ],
         title: const Text('Chat'),
         backgroundColor: Colors.lightBlueAccent,
       ),
@@ -61,7 +51,7 @@ class _ChatState extends State<Chat> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const MessagesStream(),
+            MessagesStream(user: loggedInUser?.email),
             Container(
               decoration: kChatContainerDeco,
               child: Row(
@@ -80,9 +70,13 @@ class _ChatState extends State<Chat> {
                     onPressed: () async {
                       textFieldController.clear();
                       try {
-                        await Firebase.initializeApp();
-                        await FirebaseFirestore.instance.collection('chat').add(
-                            {'sender': loggedInUser?.email, 'text': chatText});
+                        await FirebaseFirestore.instance
+                            .collection('chat')
+                            .add({
+                          'sender': loggedInUser?.email,
+                          'text': chatText,
+                          'timestamp': FieldValue.serverTimestamp(),
+                        });
                       } catch (error) {
                         print(error);
                       }
@@ -101,4 +95,3 @@ class _ChatState extends State<Chat> {
     );
   }
 }
-
