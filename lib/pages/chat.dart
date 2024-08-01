@@ -28,6 +28,22 @@ class _ChatState extends State<Chat> {
     }
   }
 
+  void messageStream() async
+  {
+    await Firebase.initializeApp();
+    await for ( var snapshot in FirebaseFirestore.instance.collection('chat').snapshots())
+      {
+        for(var message in snapshot.docs)
+          {
+            print(message.data()['sender']);
+          }
+      }
+  }
+
+
+
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -46,6 +62,7 @@ class _ChatState extends State<Chat> {
             icon: const Icon(Icons.close),
             onPressed: () {
               //Logout
+              messageStream();
             },
           ),
         ],
